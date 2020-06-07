@@ -39,7 +39,7 @@ resp, body, err := NewRequest(client).
     SetRetry(1, time.Millisecond*50, []int{500,502}, -1, -1).  //using retry,try again 50ms later when last request return a http status is 500 or 502
     Post("http://test.com").
     Send().
-    JsonTo(m)
+    JsonTo(respJson)
 ```
 
 ## Using a global default client
