@@ -2,6 +2,7 @@
 Make it easier to send HTTP requests in Golang
 
 # features
+* Method chaining
 * Reuse client
 * Get/Post/Put/Head/Delete/Patch/Options
 * Set - set header and cookie
@@ -34,11 +35,15 @@ resp, body, err := NewRequest(client).
 
 ## Post
 ```Golang
+type Req struct {
+  Name string
+  Age  int
+}
 respJson := make(map[string]string, 0)
 resp, body, err := NewRequest(client).
     SetRetry(1, time.Millisecond*50, []int{500,502}, -1, -1).  //using retry,try again 50ms later when last request return a http status is 500 or 502
     Post("http://test.com").
-    Send().
+    SendJson(&Req{Name:"test", Age:10}).
     JsonTo(respJson)
 ```
 
