@@ -1,21 +1,21 @@
-# grequest
+# 
 There are three objects in grequest:
-1. client: is http.Client, different requests can use same http.Client, or not, it's depends on you
-2. request: have http.Request, url, method, cookie, RetryConfig, etc.
-3. result: have http.Response, error, retry log, cost time, etc.
+1. Client: is http.Client, different requests can use the same http.Client, or not, it depends on your
+2. Request: have http.Request, URL, method, cookie, RetryConfig, etc.
+3. Result: have http.Response, error, retry log, cost time, etc.
 
-# features
+# Features
 * Method chaining
-* Reuse http.Client - means you can use the connection pool of http.Client
-* Set - set header, method, cookie, etc.
-* JSON - Post JSON request, receive JSON response
-* Timeout - set request timeout
-* Retry - set retry HTTP status, retry times and retry interval
-* BasicAuth - set authentication header
+* Reuse http.Client: means you can use the connection pool of http.Client
+* Set: set header, method, cookie, etc.
+* JSON: Post JSON request, receive JSON response
+* Timeout: set request timeout
+* Retry: set retry HTTP status, retry times and retry interval
+* BasicAuth: set authentication header
 
 # How to use grequest
 see request_test.go for more examples.
-## Get 
+## GET
 #### Example 1
 ```Golang
 //new a client with 1s timeout
@@ -36,7 +36,7 @@ resp, body, err := NewRequest(client).
     Response()
 ```
 
-## Post
+## POST
 ```Golang
 type Req struct {
   Name string
